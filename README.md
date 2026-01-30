@@ -83,5 +83,28 @@ The agent will now run automatically every day at 8:00 AM IST!
 - **Adjust Limits**: implementation logic is in `src/nodes/fetch.py`.
 - **Modify Prompt**: Edit `src/nodes/analyze.py`.
 
+## 🗺️ Roadmap
+
+We have big plans for this project! Contributions are welcome.
+
+- [x] HTML parsing for detailed newsletters
+- [ ] Support for other Email providers (Outlook, IMAP)
+- [ ] User-specific sending times (Timezone handling per user)
+- [ ] Web Interface for viewing summaries dashboard
+- [ ] "Chat with your Emails" feature
+
+## 🤝 Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
 ## 📄 License
-MIT License
+
+Distributed under the MIT License. See `LICENSE` for more information.
