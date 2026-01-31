@@ -31,12 +31,10 @@ def get_model():
 
 def parse_json_from_response(text: str) -> dict:
     """Extract JSON from LLM response, handling markdown code blocks."""
-    # Try to find JSON in code blocks first
     json_match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', text)
     if json_match:
         text = json_match.group(1)
     
-    # Try to find raw JSON object
     json_match = re.search(r'\{[\s\S]*\}', text)
     if json_match:
         return json.loads(json_match.group())
@@ -109,7 +107,6 @@ Content:
                 print(f"  [{idx+1}/{total}] Analyzing: {email.subject[:40]}...")
                 parsed = analyze_with_retry(chain, email, settings.MAX_RETRIES)
                 
-                # Validate and fix category if needed
                 category = parsed.get("category", "Other")
                 if category not in valid_categories:
                     category = "Other"

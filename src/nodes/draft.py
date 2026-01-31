@@ -17,8 +17,6 @@ def create_draft(state: GraphState) -> GraphState:
         
         message = EmailMessage()
         message.set_content(state.final_digest)
-        # For drafts, we don't need To/From headers
-        # The user will fill them in when composing
         message["Subject"] = "Yesterday's Email Summary 📧"
         
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()

@@ -27,7 +27,7 @@ def create_digest(state: GraphState) -> GraphState:
         "Other": "📋"
     }
     
-    # Get current date for header
+    # current date for header
     ist = pytz.timezone(settings.TIMEZONE)
     now = datetime.now(ist)
     date_str = now.strftime("%A, %B %d, %Y")
@@ -35,7 +35,6 @@ def create_digest(state: GraphState) -> GraphState:
     total_emails = len(state.raw_emails)
     analyzed_count = len(state.analyzed_emails)
     
-    # Build the digest
     digest = []
     digest.append("=" * 50)
     digest.append(f"📧 DAILY EMAIL SUMMARY")
@@ -64,11 +63,9 @@ def create_digest(state: GraphState) -> GraphState:
         digest.append(f"{icon} {category.upper()} ({len(emails)})")
         digest.append("-" * 30)
         
-        # Sort by importance (descending)
         emails.sort(key=lambda x: x.importance, reverse=True)
         
         for e in emails:
-            # Importance indicator
             if e.importance >= 4:
                 priority = "🔴 HIGH"
             elif e.importance == 3:
